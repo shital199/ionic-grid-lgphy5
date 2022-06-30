@@ -1,23 +1,3 @@
-// import { NgModule, ErrorHandler } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-
-// import { MyApp } from './app.component';
-
-
-
-
-// @NgModule({
-//   declarations: [MyApp, ],
-//   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
-//   bootstrap: [IonicApp],
-//   entryComponents: [MyApp, ],
-//   providers: [
-//     { provide: ErrorHandler, useClass: IonicErrorHandler }
-//   ]
-// })
-// export class AppModule { }
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -44,21 +24,21 @@ import { ModalEditContentPage } from '../pages/contacts/modal-edit';
     AddPage,
     TabsPage,
     ModalContentPage,
-    ModalEditContentPage
+    ModalEditContentPage,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-        backButtonText: 'Go Back',
-        iconMode: 'md',
-        modalEnter: 'modal-slide-in',
-        modalLeave: 'modal-slide-out',
-        tabsPlacement: 'bottom',
-        pageTransition: 'md-transition'
-      },
-    )],
+      backButtonText: 'Go Back',
+      iconMode: 'md',
+      modalEnter: 'modal-slide-in',
+      modalLeave: 'modal-slide-out',
+      tabsPlacement: 'bottom',
+      pageTransition: 'md-transition',
+    }),
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -67,12 +47,11 @@ import { ModalEditContentPage } from '../pages/contacts/modal-edit';
     AddPage,
     TabsPage,
     ModalContentPage,
-    ModalEditContentPage
+    ModalEditContentPage,
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler },
-    DataService
-  ]
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DataService,
+  ],
 })
 export class AppModule {}
-
