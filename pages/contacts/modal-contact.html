@@ -1,0 +1,30 @@
+<ion-header>
+<ion-toolbar>
+  <ion-title>
+    Contact Details
+  </ion-title>
+  <ion-buttons start>
+    <button ion-button (click)="dismiss()">
+      <span ion-text color="primary" showWhen="ios">Cancel</span>
+      <ion-icon name="md-close" md="md-close"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+    <ion-item>
+
+      <ion-card>
+        <img src="{{contact.photo}}">
+        <ion-card-content>
+          <ion-card-title>
+            Name: {{contact.name}}
+            </ion-card-title>
+          <p>Mobile: {{contact.number}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+</ion-list>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+<ion-toolbar>
+  <ion-title>
+    Edit Contact
+  </ion-title>
+  <ion-buttons start>
+    <button ion-button (click)="dismiss()">
+      <span ion-text color="primary" showWhen="ios">Cancel</span>
+      <ion-icon name="md-close" md="md-close"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="angForm" (ngSubmit)="updateContact(name.value, number.value)" enctype="multipart/form-data" novalidate>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input formControlName="name" [(ngModel)]="contact.name" #name required></ion-input>
+    </ion-item>
+    <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['name'].errors.required">
+        Name is required.
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Number</ion-label>
+      <ion-input formControlName="number" [(ngModel)]="contact.number" #number required minLength="10" maxLength="10"></ion-input>
+    </ion-item>
+    <div *ngIf="angForm.controls['number'].invalid && (angForm.controls['number'].dirty || angForm.controls['number'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['number'].errors.required">
+        Number is required.
+      </div>
+    </div>
+
+  </ion-list>
+
+  <button ion-button full [disabled]="angForm.pristine || angForm.invalid">Update</button>
+</form>
+</ion-content>
